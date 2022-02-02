@@ -35,12 +35,24 @@ public class Main3 {
             add("Luna");
         }};
 
-        Predicate<String> wordsWithVowels = Pattern.compile("[AaEeUuIiOoYy][^ ]*[AaEeUuIiOoYy].").asPredicate();
+        Predicate<String> wordsWithVowels = Pattern.compile("[AaEeUuIiOoYy][^AaEeUuIiOoYy].").asPredicate();
 
-        List<String> vowelWords = wordList.stream().filter(wordsWithVowels).toList();
-        System.out.println("Words with more then 2 vowels: " + vowelWords);
+        List<String> vowelWords = wordList.stream()
+                .filter(wordsWithVowels)
+                .toList();
+        System.out.println("Words with 2 or more vowels: " + vowelWords);
 
-        List<String> vowelNames = nameList.stream().filter(wordsWithVowels).toList();
-        System.out.println("Names with more then 2 vowels: " + vowelNames);
+        wordList.stream()
+                .filter(wordsWithVowels)
+                .forEach(x -> System.out.println("My name is " + x + " and I have 2 or more vowels in my name"));
+
+        List<String> vowelNames = nameList.stream()
+                .filter(wordsWithVowels)
+                .toList();
+        System.out.println("Names with 2 or more vowels: " + vowelNames);
+
+        nameList.stream()
+                .filter(wordsWithVowels)
+                .forEach(x -> System.out.println("My name is " + x + " and I have 2 or more vowels in my name."));
     }
 }

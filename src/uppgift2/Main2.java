@@ -14,7 +14,7 @@ public class Main2 {
         CarFactory carFactory = new CarFactory();
         Scanner scan = new Scanner(System.in);
         while (minBool) {
-            System.out.printf("What kind of car do you want to create?%nElectric/Gas/Disel/Hybrid%nIf you want to quit press Enter%n");
+            System.out.printf("What kind of car do you want to create?%nElectric/Gas/Disel/Hybrid%nIf you want to quit? Just press Enter%n");
             String kindOfCar = scan.nextLine();
             if (kindOfCar.equals("")) {
                 System.out.println("Thank you");
@@ -33,9 +33,7 @@ public class Main2 {
                         System.out.println("You did not select Yes, your car has been destroyed! Lets create a new car!");
                     }
                 }
-
             }
-
         }
         if(cars.size()>0){
             System.out.print("You have saved ");

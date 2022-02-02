@@ -1,10 +1,8 @@
 package com.company;
 
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.OptionalDouble;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -38,19 +36,29 @@ public class Main {
                 .average();
         System.out.println("Snittlönen för en man är: "+ män.getAsDouble()+ "kr");
 
+
+        Map<Gender, List<Person>> groupByGender = personer.stream()
+                        .collect(Collectors.groupingBy(Person::getGender));
+        groupByGender.forEach((gender, people1) -> {
+            people1.forEach(System.out::println);
+            people1.forEach(x -> System.out.println(x.getSalary()+people1.size()));
+
+        });
+
+
         System.out.println("------------------------------------------------------------------");
         //1.2
         personer.stream()
                 .sorted(Comparator.comparing(Person::getSalary).reversed())
                 .limit(1)
-                .forEach(x -> System.out.println("Personen med högst lön är: " + x.toString()));
+                .forEach(x -> System.out.println("Personen med högst lön är: " + x));
         System.out.println("------------------------------------------------------------------");
 
         //1.3
         personer.stream()
                 .sorted(Comparator.comparing(Person::getSalary))
                 .limit(1)
-                .forEach(x -> System.out.println("Personen med lägst lön är: " + x.toString()));
+                .forEach(x -> System.out.println("Personen med lägst lön är: " + x));
 
     }
 }
