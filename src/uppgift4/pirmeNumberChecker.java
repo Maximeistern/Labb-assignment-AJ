@@ -11,7 +11,6 @@ public class pirmeNumberChecker extends Thread {
 
     @Override
     public void run(){
-
         for (int num = start; num < end; num++) {
             if (isPrimeNum(num)){
                 System.out.println(num + " is a prime number");

@@ -35,7 +35,7 @@ public class Main3 {
             add("Luna");
         }};
 
-        Predicate<String> wordsWithVowels = Pattern.compile("[AaEeUuIiOoYy][^AaEeUuIiOoYy].").asPredicate();
+        Predicate<String> wordsWithVowels = Pattern.compile("[AaEeUuIiOoYy][^ ]*[AaEeUuIiOoYy]").asPredicate();
 
         List<String> vowelWords = wordList.stream()
                 .filter(wordsWithVowels)
